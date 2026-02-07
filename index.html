@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Website</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+  <div class="logo">🍔 Foodies</div>
+  <nav>
+    <ul>
+      <li>Home</li>
+      <li>Menu</li>
+      <li>Order</li>
+      <li>Contact</li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO SLIDER -->
+<section class="hero">
+  <div class="slide active">
+    <h1>Delicious Burgers</h1>
+  </div>
+  <div class="slide">
+    <h1>Fresh Pizza</h1>
+  </div>
+
+  <button id="prev">&#10094;</button>
+  <button id="next">&#10095;</button>
+</section>
+
+<!-- MENU -->
+<section class="menu">
+  <h2>Our Menu</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <img src="https://via.placeholder.com/200">
+      <h3>Burger</h3>
+      <p>$5</p>
+      <button onclick="addToCart(5)">Add</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/200">
+      <h3>Pizza</h3>
+      <p>$8</p>
+      <button onclick="addToCart(8)">Add</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- CART -->
+<section class="cart">
+  <h2>Cart Total: $<span id="total">0</span></h2>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

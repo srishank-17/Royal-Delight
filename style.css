@@ -1,0 +1,76 @@
+body{
+  margin:0;
+  font-family:Arial;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  background:#222;
+  color:white;
+  padding:15px;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+
+.hero{
+  height:300px;
+  background:#ffcc00;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+.slide{
+  display:none;
+  font-size:40px;
+}
+
+.active{
+  display:block;
+}
+
+button{
+  cursor:pointer;
+}
+
+#prev,#next{
+  position:absolute;
+  top:50%;
+  background:black;
+  color:white;
+  border:none;
+  padding:10px;
+}
+
+#prev{left:10px}
+#next{right:10px}
+
+.menu{
+  text-align:center;
+  padding:40px;
+}
+
+.cards{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+}
+
+.card{
+  border:1px solid #ccc;
+  padding:15px;
+  width:200px;
+}
+
+.cart{
+  background:#eee;
+  padding:20px;
+  text-align:center;
+}
+

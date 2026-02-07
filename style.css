@@ -1,14 +1,18 @@
 body{
-  margin:0;
   font-family:Arial;
+  margin:0;
+  padding-bottom:70px;
 }
 
+/* NAVBAR */
 header{
-  display:flex;
-  justify-content:space-between;
   background:#222;
   color:white;
   padding:15px;
+  display:flex;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
 }
 
 nav ul{
@@ -17,60 +21,100 @@ nav ul{
   gap:20px;
 }
 
-.hero{
-  height:300px;
-  background:#ffcc00;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-}
-
-.slide{
-  display:none;
-  font-size:40px;
-}
-
-.active{
-  display:block;
-}
-
-button{
+nav li{
   cursor:pointer;
 }
 
-#prev,#next{
-  position:absolute;
-  top:50%;
-  background:black;
-  color:white;
-  border:none;
-  padding:10px;
+nav li:hover{
+  color:#ff9800;
 }
 
-#prev{left:10px}
-#next{right:10px}
-
-.menu{
+/* SECTIONS */
+.section{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  color:white;
   text-align:center;
-  padding:40px;
+  position:relative;
+  z-index:1;
+}
+
+
+.hero{
+  position:relative;
+  height:90vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("home_img.jpg") center/cover no-repeat;
+  filter:brightness(50%);
+  z-index:-1;
+}
+
+
+
+/* MENU */
+.categories button{
+  margin:5px;
+  padding:10px;
 }
 
 .cards{
   display:flex;
+  flex-wrap:wrap;
   justify-content:center;
-  gap:30px;
+  gap:20px;
 }
 
 .card{
   border:1px solid #ccc;
-  padding:15px;
-  width:200px;
+  padding:10px;
+  width:160px;
 }
 
+.card img{
+  width:100%;
+}
+
+/* CART */
 .cart{
-  background:#eee;
-  padding:20px;
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:#ff9800;
+  color:white;
   text-align:center;
+  padding:15px;
+  font-weight:bold;
 }
 
+.menu-bg{
+  background:url("menu.jpg") center/cover no-repeat;
+}
+
+.dining-bg{
+  background:url("dining.jpg") center/cover no-repeat;
+}
+
+.contact-bg{
+  background:#111; /* or image */
+}
+
+
+.menu-bg::before,
+.dining-bg::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+}

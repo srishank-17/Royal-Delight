@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<script>
+function registerUser(){
+
+  let username = document.getElementById("name").value;  // ✅ VALUE
+  let email = document.getElementById("email").value;
+  let pass = document.getElementById("pass").value;
+  let confirm = document.getElementById("confirm").value;
+
+  if(username=="" || email=="" || pass=="" || confirm==""){
+    alert("Please fill all fields");
+    return;
+  }
+
+  if(pass !== confirm){
+    alert("Passwords do not match ❌");
+    return;
+  }
+
+  let user = {
+    username: username,
+    email: email,
+    password: pass
+  };
+
+  localStorage.setItem("user", JSON.stringify(user));
+
+  // ✅ store username correctly
+  localStorage.setItem("loggedUser", username);
+
+  window.location.href = "index.html";
+}
+
+function togglePass(id, el){
+  let input = document.getElementById(id);
+
+  if(input.type === "password"){
+    input.type = "text";
+    el.innerText = "🙈";
+  }else{
+    input.type = "password";
+    el.innerText = "👁";
+  }
+}
+
+document.addEventListener("mousemove", function(e){
+
+  let boxes = document.querySelectorAll(".input-box");
+
+  boxes.forEach(box => {
+
+    let rect = box.getBoundingClientRect();
+
+    let centerX = rect.left + rect.width / 2;
+    let centerY = rect.top + rect.height / 2;
+
+    let distance = Math.hypot(
+      e.clientX - centerX,
+      e.clientY - centerY
+    );
+
+    let maxDistance = 200; // area of effect
+
+    if(distance < maxDistance){
+
+      let scale = 1 + (maxDistance - distance) / 500; 
+      // 🔥 smooth scaling
+
+      box.querySelector("input").style.transform = `scale(${scale})`;
+
+      box.querySelector("input").style.boxShadow =
+        "0 0 10px #ff9800, 0 0 20px rgba(255,152,0,0.5)";
+
+    }else{
+
+      box.querySelector("input").style.transform = "scale(1)";
+      box.querySelector("input").style.boxShadow = "none";
+    }
+
+  });
+
+});
+</script>
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+
+  background:url("images/bg.jpg") center/cover no-repeat;
+}
+
+/* GLASS FORM */
+.form-box{
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+  padding:30px;
+  border-radius:15px;
+  width:300px;
+  text-align:center;
+
+  box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+h2{
+  color:rgb(184, 214, 11);
+  margin-bottom:20px;
+}
+
+/* INPUTS */
+/* GLASS INPUT BOX */
+input{
+  width:100%;
+  padding:14px;
+  margin:12px 0;
+
+  border:none;
+  outline:none;
+
+  border-radius:12px;
+
+  /* Glass effect */
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(10px);
+
+  color:#333;
+  font-size:15px;
+
+  transition:0.3s;
+
+  border:1px solid rgba(255,255,255,0.3);
+}
+
+/* PLACEHOLDER COLOR */
+input::placeholder{
+  color:#555;
+}
+
+/* HOVER / FOCUS EFFECT */
+input:focus{
+  transform:scale(1.03);
+
+  box-shadow:
+    0 0 10px rgba(255,152,0,0.5),
+    0 0 20px rgba(255,152,0,0.3);
+}
+
+/* INPUT BOX CONTAINER */
+/* INPUT BOX */
+.input-box{
+  position:relative;
+  margin:15px 0;
+  transition:0.2s;
+}
+
+/* SMALLER INPUT */
+.input-box input{
+  width:85%;              /* 🔥 reduced width */
+  padding:10px 35px;      /* 🔥 smaller padding */
+
+  border:none;
+  outline:none;
+  border-radius:10px;
+
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(8px);
+
+  border:1px solid rgba(255,255,255,0.25);
+
+  font-size:14px;
+
+  transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* WHEN ACTIVE (NEAR CURSOR) */
+.input-box.active input{
+  transform:scale(1.08);
+
+  box-shadow:
+    0 0 10px #ff9800,
+    0 0 25px rgba(255,152,0,0.5);
+}
+
+/* HOVER ENLARGE */
+.input-box input:hover{
+  transform:scale(1.05);
+}
+
+/* FOCUS GLOW */
+.input-box input:focus{
+  transform:scale(1.05);
+
+  box-shadow:
+    0 0 10px #ff9800,
+    0 0 20px rgba(255,152,0,0.4);
+}
+
+/* ICON LEFT */
+.input-box i{
+  position:absolute;
+  left:12px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#555;
+}
+
+/* TOGGLE ICON RIGHT */
+.input-box .toggle{
+  position:absolute;
+  right:12px;
+  top:50%;
+  transform:translateY(-50%);
+  cursor:pointer;
+}
+
+/* FLOATING LABEL */
+.input-box label{
+  position:absolute;
+  left:40px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#777;
+
+  pointer-events:none;
+  transition:0.3s;
+}
+
+/* FLOAT UP WHEN TYPING */
+.input-box input:focus + label,
+.input-box input:valid + label{
+  top:-8px;
+  left:30px;
+  font-size:12px;
+  color:#ff9800;
+}
+
+/* ERROR SHAKE */
+.input-box.error input{
+  border:1px solid red;
+  animation:shake 0.3s;
+}
+
+@keyframes shake{
+  0%{transform:translateX(0);}
+  25%{transform:translateX(-5px);}
+  50%{transform:translateX(5px);}
+  75%{transform:translateX(-5px);}
+  100%{transform:translateX(0);}
+}
+
+/* BUTTON */
+button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border:none;
+  border-radius:25px;
+  cursor:pointer;
+
+  background:#ff9800;
+  color:rgb(161, 9, 9);
+  font-weight:bold;
+
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 10px #ff9800;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="form-box">
+  <h2>Register</h2>
+
+  <div class="input-box">
+  <i class="fas fa-user"></i>
+  <input type="text" id="name" required>
+  <label>User Name</label>
+</div>
+
+<div class="input-box">
+  <i class="fas fa-envelope"></i>
+  <input type="email" id="email" required>
+  <label>Email</label>
+</div>
+
+<div class="input-box">
+  <i class="fas fa-lock"></i>
+  <input type="password" id="pass" required>
+  <label>Password</label>
+  <span class="toggle" onclick="togglePass('pass', this)">👁</span>
+</div>
+
+<div class="input-box">
+  <i class="fas fa-lock"></i>
+  <input type="password" id="confirm" required>
+  <label>Confirm Password</label>
+  <span class="toggle" onclick="togglePass('confirm', this)">👁</span>
+</div>
+
+  <button onclick="registerUser()">Register</button></div>
+
+</body>
+</html>

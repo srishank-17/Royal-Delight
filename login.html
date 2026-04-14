@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* BODY */
+body{
+  margin:0;
+  font-family:'Poppins';
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  background:url("images/bg.jpg") center/cover no-repeat;
+}
+
+/* GLASS BOX */
+.box{
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+  padding:30px;
+  border-radius:15px;
+  width:300px;
+  text-align:center;
+}
+
+/* TITLE */
+h2{
+  margin-bottom:20px;
+}
+
+/* INPUT CONTAINER */
+.input-box{
+  position:relative;
+  margin:20px 0;
+  transition:0.2s;
+}
+
+.input-box input{
+  width:85%;
+  padding:12px 40px;
+
+  border:none;
+  outline:none;
+  border-radius:10px;
+
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(10px);
+
+  border:1px solid rgba(255,255,255,0.3);
+
+  transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ICON LEFT */
+.input-box i{
+  position:absolute;
+  left:12px;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+/* TOGGLE RIGHT */
+.toggle{
+  position:absolute;
+  right:12px;
+  top:50%;
+  transform:translateY(-50%);
+  cursor:pointer;
+}
+
+/* FLOAT LABEL */
+.input-box label{
+  position:absolute;
+  left:40px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#555;
+  transition:0.3s;
+  pointer-events:none;
+}
+
+.input-box input:focus + label,
+.input-box input:valid + label{
+  top:-8px;
+  font-size:12px;
+  color:#ff9800;
+}
+
+/* BUTTON */
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:25px;
+  background:#ff9800;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 10px #ff9800;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h2>Login</h2>
+
+<!-- EMAIL -->
+<div class="input-box">
+  <i class="fas fa-envelope"></i>
+  <input type="email" id="email" required>
+  <label>Email</label>
+</div>
+
+<!-- PASSWORD -->
+<div class="input-box">
+  <i class="fas fa-lock"></i>
+  <input type="password" id="password" required>
+  <label>Password</label>
+  <span class="toggle" onclick="togglePass()">👁</span>
+</div>
+
+<button onclick="loginUser()">Login</button>
+
+</div>
+
+<script>
+
+/* SHOW / HIDE PASSWORD */
+function togglePass(){
+  let input = document.getElementById("password");
+
+  if(input.type === "password"){
+    input.type = "text";
+  }else{
+    input.type = "password";
+  }
+}
+
+/* LOGIN FUNCTION */
+function loginUser(){
+
+  let email = document.getElementById("email").value;
+  let pass = document.getElementById("password").value;
+
+  let storedUser = JSON.parse(localStorage.getItem("user"));
+
+  if(!storedUser){
+    alert("No user found. Please register first.");
+    return;
+  }
+
+  if(email === storedUser.email && pass === storedUser.password){
+
+    localStorage.setItem("loggedUser", storedUser.username);
+
+    alert("Login Successful ✅");
+    window.location.href = "index.html";
+
+  }else{
+    alert("Invalid credentials ❌");
+  }
+}
+
+document.addEventListener("mousemove", function(e){
+
+  let boxes = document.querySelectorAll(".input-box");
+
+  boxes.forEach(box => {
+
+    let rect = box.getBoundingClientRect();
+
+    let centerX = rect.left + rect.width / 2;
+    let centerY = rect.top + rect.height / 2;
+
+    let distance = Math.hypot(
+      e.clientX - centerX,
+      e.clientY - centerY
+    );
+
+    let maxDistance = 200; // 🔥 SAME AS REGISTER
+
+    let input = box.querySelector("input");
+
+    if(distance < maxDistance){
+
+      let scale = 1 + (maxDistance - distance) / 500;
+
+      input.style.transform = `scale(${scale})`;
+
+      input.style.boxShadow =
+        "0 0 10px #ff9800, 0 0 20px rgba(255,152,0,0.5)";
+
+    }else{
+      input.style.transform = "scale(1)";
+      input.style.boxShadow = "none";
+    }
+
+  });
+
+});
+</script>
+
+</body>
+</html>

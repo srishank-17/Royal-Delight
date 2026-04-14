@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Veg Menu</title>
+
+<style>
+/* BODY BACKGROUND */
+body{
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  color:rgb(192, 27, 27);
+  text-align:center;
+  position:relative;
+}
+
+/* BACKGROUND IMAGE + BLUR */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url("./images/bg.jpg") center/cover no-repeat;
+  filter:blur(8px) brightness(50%);
+  z-index:-1;
+}
+
+/* HEADING */
+h1{
+  margin-top:30px;
+  font-size:40px;
+  color:#FFD700;
+}
+
+/* GRID */
+.container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:25px;
+  padding:40px;
+}
+
+/* CARD */
+.card{
+  width:220px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+  border-radius:12px;
+  overflow:hidden;
+  transition:0.3s;
+  border:1px solid rgba(255,255,255,0.2);
+}
+
+/* IMAGE */
+.card img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  display:block;
+}
+
+/* NAME */
+.card h3{
+  padding:12px;
+  margin:0;
+}
+
+/* HOVER EFFECT */
+.card:hover{
+  transform:scale(1.08);
+  box-shadow:
+    0 0 15px #ff9800,
+    0 0 30px #ff9800;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Veg Items</h1>
+
+<div class="container">
+
+<div class="card">
+  <img src="./images/paneer.jpg"> 
+  <h3>Paneer Curry</h3>
+</div>
+
+<div class="card">
+  <img src="./images/veg_biryani.jpg"> 
+  <h3>Veg Biryani</h3>
+</div>
+
+<div class="card">
+  <img src="./images/dosa.jpg"> 
+  <h3>Masala Dosa</h3>
+</div>
+
+<div class="card">
+  <img src="./images/green_salad.jpg"> 
+  <h3>Green Salad</h3>
+</div>
+
+</div>
+
+</body>
+</html>

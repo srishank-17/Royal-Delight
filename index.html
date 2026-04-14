@@ -4,19 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Royal Delight</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <!-- NAVBAR -->
-<header>
+<header id="header">
   <div class="logo">
-  Royal
-  <span class="flower">🌸</span>
-  Delight
+    Royal
+    <span class="flower"></span>
+    Delight
   </div>
-  
 
   <nav>
     <ul>
@@ -27,28 +33,89 @@
       <li onclick="scrollToSection('locations')">Locations</li>
       <li onclick="scrollToSection('about')">About</li>
       <li onclick="scrollToSection('contact')">Contact</li>
+
+      <!-- AUTH BUTTONS -->
+      <li onclick="openRegister()" id="registerBtn">Register</li>
+      <li onclick="openLogin()" id="loginBtn">Login</li>
+      <li onclick="logout()" id="logoutBtn">Logout</li>
     </ul>
   </nav>
+
+  <div id="userDisplay" class="user-display">
+  <span id="userText"></span>
+  <div class="profile">
+    <i class="fas fa-user-circle"></i>
+
+    <span id="userText"></span>
+
+    <!-- DROPDOWN -->
+    <div class="dropdown">
+      <p onclick="goProfile()">Profile</p>
+      <p onclick="logout()">Logout</p>
+    </div>
+  </div>
+  </div>
 </header>
+
+<!-- SIDE DOT NAV -->
+<div class="side-nav">
+
+  <a href="#home">
+    <i class="fas fa-home"></i>
+    <span>Home</span>
+  </a>
+
+  <a href="#menu">
+    <i class="fas fa-utensils"></i>
+    <span>Menu</span>
+  </a>
+
+  <a href="#offers">
+    <i class="fas fa-tags"></i>
+    <span>Offers</span>
+  </a>
+
+  <a href="#dining">
+    <i class="fas fa-chair"></i>
+    <span>Dining</span>
+  </a>
+
+  <a href="#locations">
+    <i class="fas fa-map-marker-alt"></i>
+    <span>Locations</span>
+  </a>
+
+  <a href="#about">
+    <i class="fas fa-info-circle"></i>
+    <span>about us</span>
+  </a>
+
+  <a href="#contact">
+    <i class="fas fa-envelope"></i>
+    <span>Contact</span>
+  </a>
+
+</div>
+
 
 
 <!-- HOME -->
 <section id="home" class="section hero">
   <h1>Welcome to  Royal
-  <span class="flower">🌸</span>
+  <span class="flower"></span>
   Delight</h1>
 </section>
 
 
 <!-- MENU -->
-<section id="menu" class="section">
+<section id="menu" class="section menu-bg">
 <h2>Menu</h2>
 
 <div class="categories">
-  <button onclick="showCategory('veg')">Veg</button>
-  <button onclick="showCategory('nonveg')">Non-Veg</button>
-  <button onclick="showCategory('drinks')">Drinks</button>
-  <button onclick="showCategory('dessert')">Desserts</button>
+  <button onclick="openPage('veg.html')">Veg</button>
+  <button onclick="openPage('nonveg.html')">Non-Veg</button>
+  <button onclick="openPage('drinks.html')">Drinks</button>
+  <button onclick="openPage('desserts.html')">Desserts</button>
 </div>
 
 <div id="foodContainer" class="cards"></div>
@@ -56,7 +123,7 @@
 
 
 <!-- OFFERS -->
-<section id="offers" class="section">
+<section id="offers" class="section offers-bg">
 <h2>Today's Offers</h2>
 <p>🔥 20% off on Biryani</p>
 <p>🍕 Buy 1 Pizza Get 1 Free</p>
@@ -64,16 +131,53 @@
 
 
 <!-- DINING -->
-<section id="dining" class="section">
-<h2>Dining Reservation</h2>
-<input placeholder="Your Name">
-<input type="date">
-<button>Book Table</button>
+<section id="dining" class="dining-section">
+
+  <p class="sub-title">Book Your Table</p>
+  <h2><i>Make A Reservation</i></h2>
+
+  <p class="desc">
+    Book your table easily in just a couple of minutes.
+  </p>
+
+  <div class="reservation-box">
+
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="text" id="phone" placeholder="Phone Number" required>
+
+    <!-- DATE & TIME -->
+    <input type="date" id="date">
+    <input type="time" id="time">
+    <select id="guests">
+      <option>Guests</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4+</option>
+    </select>
+
+    <textarea placeholder="Message"></textarea>
+
+    <button onclick="checkAvailability()"><b><i>Find A Table</i></b></button>
+
+  </div>
+
 </section>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+  <div class="popup-box">
+    <h2>🎉 Table Available!</h2>
+    <p>Proceed to payment to confirm booking</p>
+
+    <button onclick="makePayment()" class="pay-btn">💳 Pay ₹100</button>
+  </div>
+</div>
 
 
 <!-- LOCATIONS -->
-<section id="locations" class="section">
+<section id="locations" class="section location-bg">
 <h2>Our Locations</h2>
 <p>Hyderabad</p>
 <p>Bangalore</p>
@@ -82,23 +186,63 @@
 
 
 <!-- ABOUT -->
-<section id="about" class="section">
+<section id="about" class="section about-bg">
 <h2>About Us</h2>
 <p>We serve delicious food with love ❤️</p>
 </section>
 
 
 <!-- CONTACT -->
-<section id="contact" class="section">
-<h2>Contact</h2>
-<p>Email: support@foodhub.com</p>
-<p>Phone: 9999999999</p>
+<section id="contact" class="contact-section">
+
+  <div class="contact-container">
+
+    <!-- ADDRESS -->
+    <div class="contact-box">
+      <i class="fas fa-map-marker-alt"></i>
+      <h3>Address</h3>
+      <p>Royal Delight Restaurant<br>
+      Hyderabad, India</p>
+    </div>
+
+    <!-- PHONE -->
+    <div class="contact-box">
+      <i class="fas fa-phone"></i>
+      <h3>Phone</h3>
+      <p>+91 7675008218<br>
+      +91 9573828405</p>
+    </div>
+
+    <!-- EMAIL -->
+    <div class="contact-box">
+      <i class="fas fa-envelope"></i>
+      <h3>Reservations</h3>
+      <p>royaldelight@gmail.com</p>
+    </div>
+
+  </div>
+
+  <!-- SOCIAL ICONS -->
+  <div class="social">
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-facebook"></i>
+    <i class="fab fa-x-twitter"></i>
+  </div>
+
+  <!-- FOOTER TEXT -->
+  <div class="footer-text">
+    <h2>Royal <span class="flower">🌸</span> Delight</h2>
+    <p>Hyderabad | Bangalore | Chennai</p>
+    <p>© 2026 Royal Delight</p>
+  </div>
+
 </section>
 
 
 <!-- CART -->
 <div class="cart">
-Cart Total: ₹ <span id="total">0</span>
+  <i class="fas fa-shopping-cart"></i>
+  Cart Total = ₹ <span id="total">0</span>
 </div>
 
 <script src="script.js"></script>

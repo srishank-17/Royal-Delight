@@ -221,3 +221,10 @@ document.querySelectorAll("section").forEach(sec=>{
   sec.classList.add("hidden");
   observer.observe(sec);
 });
+
+let user = localStorage.getItem("loggedUser");
+
+if(user){
+    document.getElementById("avatarLetter").innerText =
+    user.charAt(0).toUpperCase();
+}

@@ -2,7 +2,8 @@
 <html>
 <head>
 <title>Veg Menu</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <style>
 /* BODY BACKGROUND */
 body{
@@ -15,18 +16,31 @@ body{
 
 /* BACKGROUND IMAGE + BLUR */
 body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:url("./images/bg.jpg") center/cover no-repeat;
-  filter:blur(8px) brightness(50%);
-  z-index:-1;
-}
 
+    content:"";
+
+    position:fixed;
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgb(52, 26, 1),
+        rgba(0,0,0,.55)
+    ),
+    url("./images/desserts.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    filter:none;
+
+    z-index:-1;
+}
 /* HEADING */
 h1{
   margin-top:30px;
-  font-size:40px;
+  font-size:30px;
   color:#FFD700;
 }
 
@@ -41,21 +55,52 @@ h1{
 
 /* CARD */
 .card{
-  width:220px;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(10px);
-  border-radius:12px;
-  overflow:hidden;
-  transition:0.3s;
-  border:1px solid rgba(255,255,255,0.2);
+
+    width:320px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    transition:0.5s;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.4);
+
+    position:relative;
+}
+
+.card:hover{
+
+    transform:
+    translateY(-12px)
+    scale(1.04);
+
+    box-shadow:
+    0 0 25px gold,
+    0 0 45px rgba(255,215,0,.5);
 }
 
 /* IMAGE */
 .card img{
-  width:100%;
-  height:150px;
-  object-fit:cover;
-  display:block;
+
+    width:100%;
+    height:220px;
+
+    object-fit:cover;
+
+    transition:0.5s;
+}
+
+.card:hover img{
+
+    transform:scale(1.1);
 }
 
 /* NAME */
@@ -71,34 +116,863 @@ h1{
     0 0 15px #ff9800,
     0 0 30px #ff9800;
 }
+
+.food-info{
+
+    padding:20px;
+    text-align:left;
+}
+
+.food-name{
+
+    display:flex;
+    justify-content:space-between;
+
+    font-size:24px;
+    font-weight:bold;
+
+    color:#FFD700;
+}
+
+.food-price{
+
+    color:#ff9800;
+}
+
+.food-rating{
+
+    color:gold;
+
+    margin:10px 0;
+}
+
+.food-desc{
+
+    color:white;
+
+    line-height:1.6;
+
+    font-size:15px;
+}
+
+.order-btn{
+
+    margin-top:15px;
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient(
+    135deg,
+    #FFD700,
+    #ff9800
+    );
+
+    color:black;
+
+    transition:.4s;
+}
+
+.order-btn:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:
+    0 0 20px gold,
+    0 0 40px gold;
+}
+
+.menu-banner{
+
+padding:60px 20px;
+
+text-align:center;
+}
+
+.menu-banner h1{
+    font-family:'Cinzel', serif;
+
+    font-size:50px;
+
+    font-weight:700;
+
+    color:#FFD700;
+
+    letter-spacing:3px;
+
+    text-shadow:
+    0 0 10px gold,
+    0 0 20px gold,
+    0 0 40px rgba(255,215,0,.6);
+}
+
+.menu-banner p{
+
+    font-family:'Pacifico', cursive;
+
+    font-size:24px;
+
+    color:white;
+
+    line-height:1.3;
+
+    text-align:center;
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,.4);
+
+    letter-spacing:1px;
+}
+
 </style>
 
 </head>
 
 <body>
 
-<h1>Veg Items</h1>
+<div class="menu-banner">
+
+<h1>🍰 Royal Delight Dessert Collection</h1>
+
+<p>
+Indulge in our handcrafted desserts, premium cakes,
+ice creams, pastries and sweet delights made with love.
+</p>
+
+</div>
 
 <div class="container">
 
 <div class="card">
-  <img src="./images/paneer.jpg"> 
-  <h3>Paneer Curry</h3>
+
+<img src="./images/vanilla_icecream.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Vanilla Ice Cream</span>
+<span class="food-price">₹99</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Classic Favorite
+</div>
+
+<p class="food-desc">
+Creamy vanilla ice cream made from premium dairy ingredients.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
 </div>
 
 <div class="card">
-  <img src="./images/veg_biryani.jpg"> 
-  <h3>Veg Biryani</h3>
+
+<img src="./images/chocolate_icecream.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Chocolate Ice Cream</span>
+<span class="food-price">₹119</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Chocolate Lover's Choice
+</div>
+
+<p class="food-desc">
+Rich chocolate ice cream crafted with premium cocoa.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
 </div>
 
 <div class="card">
-  <img src="./images/dosa.jpg"> 
-  <h3>Masala Dosa</h3>
+
+<img src="./images/strawberry_icecream.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Strawberry Ice Cream</span>
+<span class="food-price">₹119</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Fruity Delight
+</div>
+
+<p class="food-desc">
+Smooth strawberry ice cream made with fresh berries.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
 </div>
 
 <div class="card">
-  <img src="./images/green_salad.jpg"> 
-  <h3>Green Salad</h3>
+
+<img src="./images/butterscotch_icecream.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Butterscotch Ice Cream</span>
+<span class="food-price">₹129</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Premium Choice
+</div>
+
+<p class="food-desc">
+Creamy butterscotch ice cream loaded with crunchy caramel bits.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/black_forest.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Black Forest Cake</span>
+<span class="food-price">₹199</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Best Seller
+</div>
+
+<p class="food-desc">
+Chocolate sponge layered with cream and cherries.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/red_velvet.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Red Velvet Cake</span>
+<span class="food-price">₹229</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Luxury Dessert
+</div>
+
+<p class="food-desc">
+Soft red velvet sponge layered with cream cheese frosting.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/chocolate_brownie.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Chocolate Brownie</span>
+<span class="food-price">₹179</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Hot Favorite
+</div>
+
+<p class="food-desc">
+Warm gooey brownie loaded with rich chocolate goodness.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/gulab_jamun.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Gulab Jamun</span>
+<span class="food-price">₹99</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Traditional Delight
+</div>
+
+<p class="food-desc">
+Soft milk dumplings soaked in aromatic sugar syrup.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/rasmalai.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Rasmalai</span>
+<span class="food-price">₹149</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Royal Indian Sweet
+</div>
+
+<p class="food-desc">
+Soft cottage cheese patties served in saffron milk.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/kaju_katli.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Kaju Katli</span>
+<span class="food-price">₹169</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Premium Sweet
+</div>
+
+<p class="food-desc">
+Traditional cashew fudge with a rich royal taste.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/cheesecake.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Cheesecake</span>
+<span class="food-price">₹249</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Creamy Delight
+</div>
+
+<p class="food-desc">
+Rich and velvety cheesecake with a buttery biscuit crust.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/blueberry_cheesecake.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Blueberry Cheesecake</span>
+<span class="food-price">₹279</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Premium Favorite
+</div>
+
+<p class="food-desc">
+Creamy cheesecake topped with sweet blueberry compote.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/tiramisu.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Tiramisu</span>
+<span class="food-price">₹299</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Italian Classic
+</div>
+
+<p class="food-desc">
+Coffee-soaked sponge layered with mascarpone cream.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/chocolate_pastry.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Chocolate Pastry</span>
+<span class="food-price">₹149</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Chocolate Heaven
+</div>
+
+<p class="food-desc">
+Soft chocolate sponge layered with rich chocolate cream.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/pineapple_pastry.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Pineapple Pastry</span>
+<span class="food-price">₹139</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Fruity Delight
+</div>
+
+<p class="food-desc">
+Light sponge cake topped with fresh pineapple cream.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/mango_mousse.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Mango Mousse</span>
+<span class="food-price">₹169</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Summer Special
+</div>
+
+<p class="food-desc">
+Smooth and airy mango mousse made from fresh mangoes.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/chocolate_mousse.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Chocolate Mousse</span>
+<span class="food-price">₹179</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Rich & Creamy
+</div>
+
+<p class="food-desc">
+Silky chocolate mousse with intense cocoa flavor.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/caramel_pudding.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Caramel Pudding</span>
+<span class="food-price">₹149</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Smooth Classic
+</div>
+
+<p class="food-desc">
+Soft pudding topped with golden caramel sauce.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/fruit_custard.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Fruit Custard</span>
+<span class="food-price">₹129</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Family Favorite
+</div>
+
+<p class="food-desc">
+Creamy custard loaded with seasonal fresh fruits.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/falooda.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Falooda</span>
+<span class="food-price">₹179</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Royal Refreshment
+</div>
+
+<p class="food-desc">
+Traditional falooda with vermicelli, basil seeds and ice cream.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/kulfi.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Kulfi</span>
+<span class="food-price">₹99</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Indian Classic
+</div>
+
+<p class="food-desc">
+Rich frozen milk dessert flavored with cardamom and nuts.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/malai_kulfi.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Malai Kulfi</span>
+<span class="food-price">₹119</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Creamy Delight
+</div>
+
+<p class="food-desc">
+Traditional creamy kulfi prepared with thickened milk.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/rabri.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Rabri</span>
+<span class="food-price">₹149</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Royal Sweet
+</div>
+
+<p class="food-desc">
+Slow-cooked sweetened milk garnished with nuts and saffron.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/gajar_halwa.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Gajar Ka Halwa</span>
+<span class="food-price">₹159</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Winter Special
+</div>
+
+<p class="food-desc">
+Traditional carrot halwa cooked with milk, ghee and dry fruits.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/double_ka_meetha.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Double Ka Meetha</span>
+<span class="food-price">₹169</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Hyderabadi Special
+</div>
+
+<p class="food-desc">
+Bread pudding soaked in saffron-flavored sweet milk.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/shahi_tukda.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Shahi Tukda</span>
+<span class="food-price">₹179</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Royal Dessert
+</div>
+
+<p class="food-desc">
+Crispy fried bread soaked in rich rabri and dry fruits.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/choco_lava_cake.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Choco Lava Cake</span>
+<span class="food-price">₹199</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Hot Favorite
+</div>
+
+<p class="food-desc">
+Warm chocolate cake with a rich molten chocolate center.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/donut_platter.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Donut Platter</span>
+<span class="food-price">₹189</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Sweet Treat
+</div>
+
+<p class="food-desc">
+Assorted glazed donuts with colorful toppings and fillings.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/macarons.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Macarons</span>
+<span class="food-price">₹249</span>
+</div>
+
+<div class="food-rating">
+★★★★★ French Luxury
+</div>
+
+<p class="food-desc">
+Elegant French macarons filled with creamy flavored ganache.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/royal_sundae.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Royal Delight Special Sundae</span>
+<span class="food-price">₹299</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Royal Signature
+</div>
+
+<p class="food-desc">
+A luxurious sundae loaded with ice cream, brownies, fruits and nuts.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
 </div>
 
 </div>

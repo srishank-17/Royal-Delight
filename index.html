@@ -42,19 +42,30 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   </nav>
 
   <div id="userDisplay" class="user-display">
-  <span id="userText"></span>
-  <div class="profile">
-    <i class="fas fa-user-circle"></i>
 
     <span id="userText"></span>
 
-    <!-- DROPDOWN -->
-    <div class="dropdown">
-      <p onclick="goProfile()">Profile</p>
-      <p onclick="logout()">Logout</p>
+    <div class="profile">
+
+        <div class="profile-avatar" id="avatarLetter">
+            <i class="fas fa-user"></i>
+        </div>
+
+        <div class="dropdown">
+
+            <p onclick="goProfile()">
+                <i class="fas fa-user"></i> Profile
+            </p>
+
+            <p onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </p>
+
+        </div>
+
     </div>
-  </div>
-  </div>
+
+</div>
 </header>
 
 <!-- SIDE DOT NAV -->
@@ -98,35 +109,122 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </div>
 
 
-
 <!-- HOME -->
 <section id="home" class="section hero">
-  <h1>Welcome to  Royal
-  <span class="flower"></span>
-  Delight</h1>
+  <div class="hero-content">
+
+    <span class="tagline">
+        ✨ Fine Dining Experience
+    </span>
+
+    <h1>
+    Welcome to
+    <span>Royal Delight</span>
+</h1>
+
+    <p>
+        Experience luxury dining, handcrafted dishes,
+        and unforgettable moments.
+    </p>
+
+    <div class="hero-buttons">
+
+        <button onclick="scrollToSection('menu')">
+            Explore Menu
+        </button>
+
+        <button onclick="scrollToSection('dining')">
+            Book Table
+        </button>
+
+    </div>
+
+    <div class="stats">
+
+    <div>
+        <h2>⭐ 4.9</h2>
+        <span>Customer Rating</span>
+    </div>
+
+    <div>
+        <h2>🍽️ 150+</h2>
+        <span>Signature Dishes</span>
+    </div>
+
+    <div>
+        <h2>👑 25K+</h2>
+        <span>Royal Guests</span>
+    </div>
+
+</div>
+
+</div>
+
+<div class="scroll-down">
+    ↓ Scroll Down
+</div>
+
 </section>
 
 
 <!-- MENU -->
 <section id="menu" class="section menu-bg">
-<h2>Menu</h2>
 
-<div class="categories">
-  <button onclick="openPage('veg.html')">Veg</button>
-  <button onclick="openPage('nonveg.html')">Non-Veg</button>
-  <button onclick="openPage('drinks.html')">Drinks</button>
-  <button onclick="openPage('desserts.html')">Desserts</button>
-</div>
+    <div class="menu-overlay">
+
+        <h2 class="menu-title">Our Signature Menu</h2>
+        <p class="menu-subtitle">
+            Discover handcrafted dishes prepared by our master chefs
+        </p>
+
+        <div class="categories">
+
+            <button onclick="openPage('veg.html')">
+                🥗 Veg
+            </button>
+
+            <button onclick="openPage('nonveg.html')">
+                🍗 Non-Veg
+            </button>
+
+            <button onclick="openPage('drinks.html')">
+                🍹 Drinks
+            </button>
+
+            <button onclick="openPage('desserts.html')">
+                🍰 Desserts
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
 
 <div id="foodContainer" class="cards"></div>
 </section>
 
 
 <!-- OFFERS -->
-<section id="offers" class="section offers-bg">
-<h2>Today's Offers</h2>
-<p>🔥 20% off on Biryani</p>
-<p>🍕 Buy 1 Pizza Get 1 Free</p>
+<section id="offers" class="offers-section">
+
+  <h2 class="offers-title">Exclusive Offers</h2>
+  <p class="offers-subtitle">
+    Enjoy amazing deals from your favorite food partners
+  </p>
+
+  <div class="offers-container">
+
+    <div class="offer-card" onclick="window.open('https://www.zomato.com')">
+      <img src="images/zomato.jpg">
+    </div>
+
+    <div class="offer-card" onclick="window.open('https://www.swiggy.com')">
+      <img src="images/swiggy.jpg">
+    </div>
+
+  </div>
+
 </section>
 
 
@@ -178,10 +276,37 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <!-- LOCATIONS -->
 <section id="locations" class="section location-bg">
-<h2>Our Locations</h2>
-<p>Hyderabad</p>
-<p>Bangalore</p>
-<p>Chennai</p>
+
+<h2 class="location-title">Our Locations</h2>
+<p class="location-subtitle">
+Visit Royal Delight near you
+</p>
+
+<div class="location-container">
+
+    <div class="location-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <img src="images/hyderabad.jpg">
+        <h3>Hyderabad</h3>
+        <p>Jubilee Hills, Hyderabad</p>
+    </div>
+
+    <div class="location-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <img src="images/bangalore.jpg">
+        <h3>Bangalore</h3>
+        <p>MG Road, Bangalore</p>
+    </div>
+
+    <div class="location-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <img src="images/chennai.jpg">
+        <h3>Chennai</h3>
+        <p>Anna Nagar, Chennai</p>
+    </div>
+
+</div>
+
 </section>
 
 
@@ -264,9 +389,20 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 
 <!-- CART -->
-<div class="cart">
-  <i class="fas fa-shopping-cart"></i>
-  Cart Total = ₹ <span id="total">0</span>
+<div class="cart-bar">
+
+    <div class="cart-info">
+        🛒 Cart Total
+    </div>
+
+    <div class="cart-price">
+        ₹ <span id="total">0</span>
+    </div>
+
+    <button class="checkout-btn">
+        Checkout
+    </button>
+
 </div>
 
 <script src="script.js"></script>

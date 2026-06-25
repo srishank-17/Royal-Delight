@@ -2,7 +2,8 @@
 <html>
 <head>
 <title>Veg Menu</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <style>
 /* BODY BACKGROUND */
 body{
@@ -15,18 +16,32 @@ body{
 
 /* BACKGROUND IMAGE + BLUR */
 body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:url("./images/bg.jpg") center/cover no-repeat;
-  filter:blur(8px) brightness(50%);
-  z-index:-1;
+
+    content:"";
+
+    position:fixed;
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(120, 73, 27, 0.926),
+        rgba(15, 14, 14, 0.936)
+    ),
+    url("./images/drinks.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    filter:none;
+
+    z-index:-1;
 }
 
 /* HEADING */
 h1{
   margin-top:30px;
-  font-size:40px;
+  font-size:30px;
   color:#FFD700;
 }
 
@@ -41,21 +56,52 @@ h1{
 
 /* CARD */
 .card{
-  width:220px;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(10px);
-  border-radius:12px;
-  overflow:hidden;
-  transition:0.3s;
-  border:1px solid rgba(255,255,255,0.2);
+
+    width:320px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    transition:0.5s;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.4);
+
+    position:relative;
+}
+
+.card:hover{
+
+    transform:
+    translateY(-12px)
+    scale(1.04);
+
+    box-shadow:
+    0 0 25px gold,
+    0 0 45px rgba(255,215,0,.5);
 }
 
 /* IMAGE */
 .card img{
-  width:100%;
-  height:150px;
-  object-fit:cover;
-  display:block;
+
+    width:100%;
+    height:220px;
+
+    object-fit:cover;
+
+    transition:0.5s;
+}
+
+.card:hover img{
+
+    transform:scale(1.1);
 }
 
 /* NAME */
@@ -71,34 +117,863 @@ h1{
     0 0 15px #ff9800,
     0 0 30px #ff9800;
 }
+
+.food-info{
+
+    padding:20px;
+    text-align:left;
+}
+
+.food-name{
+
+    display:flex;
+    justify-content:space-between;
+
+    font-size:24px;
+    font-weight:bold;
+
+    color:#FFD700;
+}
+
+.food-price{
+
+    color:#ff9800;
+}
+
+.food-rating{
+
+    color:gold;
+
+    margin:10px 0;
+}
+
+.food-desc{
+
+    color:white;
+
+    line-height:1.6;
+
+    font-size:15px;
+}
+
+.order-btn{
+
+    margin-top:15px;
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient(
+    135deg,
+    #FFD700,
+    #ff9800
+    );
+
+    color:black;
+
+    transition:.4s;
+}
+
+.order-btn:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:
+    0 0 20px gold,
+    0 0 40px gold;
+}
+
+.menu-banner{
+
+padding:60px 20px;
+
+text-align:center;
+}
+
+.menu-banner h1{
+    font-family:'Cinzel', serif;
+
+    font-size:50px;
+
+    font-weight:700;
+
+    color:#FFD700;
+
+    letter-spacing:3px;
+
+    text-shadow:
+    0 0 10px gold,
+    0 0 20px gold,
+    0 0 40px rgba(255,215,0,.6);
+}
+
+.menu-banner p{
+
+    font-family:'Pacifico', cursive;
+
+    font-size:24px;
+
+    color:white;
+
+    line-height:1.3;
+
+    text-align:center;
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,.4);
+
+    letter-spacing:1px;
+}
+
 </style>
 
 </head>
 
 <body>
 
-<h1>Veg Items</h1>
+<div class="menu-banner">
+
+<h1>🍹 Royal Delight Drinks Collection</h1>
+
+<p>
+Refresh yourself with our premium beverages, mocktails,
+fresh juices, shakes and signature drinks crafted for every occasion.
+</p>
+
+</div>
 
 <div class="container">
 
 <div class="card">
-  <img src="./images/paneer.jpg"> 
-  <h3>Paneer Curry</h3>
+
+<img src="./images/fresh_lime_soda.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Fresh Lime Soda</span>
+<span class="food-price">₹89</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Refreshing Choice
+</div>
+
+<p class="food-desc">
+Fresh lime mixed with chilled soda for the perfect refreshment.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
 </div>
 
 <div class="card">
-  <img src="./images/veg_biryani.jpg"> 
-  <h3>Veg Biryani</h3>
+
+<img src="./images/virgin_mojito.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Virgin Mojito</span>
+<span class="food-price">₹149</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Best Seller
+</div>
+
+<p class="food-desc">
+Mint leaves, lime and soda blended into a refreshing mocktail.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
 </div>
 
 <div class="card">
-  <img src="./images/dosa.jpg"> 
-  <h3>Masala Dosa</h3>
+
+<img src="./images/blue_lagoon.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Blue Lagoon</span>
+<span class="food-price">₹169</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Signature Mocktail
+</div>
+
+<p class="food-desc">
+A tropical blue drink with citrus flavors and refreshing sweetness.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
 </div>
 
 <div class="card">
-  <img src="./images/green_salad.jpg"> 
-  <h3>Green Salad</h3>
+
+<img src="./images/watermelon_juice.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Watermelon Juice</span>
+<span class="food-price">₹99</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Summer Favorite
+</div>
+
+<p class="food-desc">
+Fresh watermelon blended into a naturally sweet chilled drink.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/orange_juice.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Orange Juice</span>
+<span class="food-price">₹109</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Vitamin Boost
+</div>
+
+<p class="food-desc">
+Freshly squeezed oranges packed with citrus goodness.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/mango_shake.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Mango Shake</span>
+<span class="food-price">₹149</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Customer Favorite
+</div>
+
+<p class="food-desc">
+Rich mangoes blended with chilled milk into a creamy delight.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/chocolate_shake.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Chocolate Milkshake</span>
+<span class="food-price">₹169</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Sweet Delight
+</div>
+
+<p class="food-desc">
+Creamy chocolate shake topped with rich chocolate syrup.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/oreo_shake.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Oreo Shake</span>
+<span class="food-price">₹179</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Kids Favorite
+</div>
+
+<p class="food-desc">
+Crushed Oreo cookies blended into a thick creamy shake.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/strawberry_shake.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Strawberry Shake</span>
+<span class="food-price">₹159</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Fruity Delight
+</div>
+
+<p class="food-desc">
+Fresh strawberries blended into a creamy milkshake.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/vanilla_shake.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Vanilla Shake</span>
+<span class="food-price">₹149</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Classic Choice
+</div>
+
+<p class="food-desc">
+Smooth vanilla flavored shake served chilled.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/cold_coffee.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Cold Coffee</span>
+<span class="food-price">₹149</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Café Favorite
+</div>
+
+<p class="food-desc">
+Rich chilled coffee blended with milk and topped with creamy foam.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/cappuccino.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Cappuccino</span>
+<span class="food-price">₹129</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Coffee Special
+</div>
+
+<p class="food-desc">
+Fresh espresso topped with silky milk foam and cocoa dusting.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/latte.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Latte</span>
+<span class="food-price">₹139</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Smooth Choice
+</div>
+
+<p class="food-desc">
+Creamy espresso drink blended with steamed milk.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/espresso.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Espresso</span>
+<span class="food-price">₹119</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Strong Brew
+</div>
+
+<p class="food-desc">
+Pure concentrated coffee shot for true coffee lovers.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/mocha_coffee.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Mocha Coffee</span>
+<span class="food-price">₹149</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Chocolate Delight
+</div>
+
+<p class="food-desc">
+Espresso mixed with chocolate and creamy steamed milk.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/green_tea.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Green Tea</span>
+<span class="food-price">₹99</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Healthy Choice
+</div>
+
+<p class="food-desc">
+Refreshing antioxidant-rich green tea brewed to perfection.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/lemon_iced_tea.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Lemon Iced Tea</span>
+<span class="food-price">₹119</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Summer Special
+</div>
+
+<p class="food-desc">
+Chilled tea infused with fresh lemon and refreshing flavors.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/peach_iced_tea.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Peach Iced Tea</span>
+<span class="food-price">₹129</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Fruity Refreshment
+</div>
+
+<p class="food-desc">
+Cool iced tea blended with sweet peach essence.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/masala_chai.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Masala Chai</span>
+<span class="food-price">₹79</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Traditional Favorite
+</div>
+
+<p class="food-desc">
+Authentic Indian tea brewed with aromatic spices and milk.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/hot_chocolate.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Hot Chocolate</span>
+<span class="food-price">₹149</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Cozy Delight
+</div>
+
+<p class="food-desc">
+Rich hot chocolate topped with creamy froth and cocoa.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/pineapple_juice.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Pineapple Juice</span>
+<span class="food-price">₹109</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Tropical Fresh
+</div>
+
+<p class="food-desc">
+Fresh pineapple juice packed with natural sweetness.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/pomegranate_juice.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Pomegranate Juice</span>
+<span class="food-price">₹129</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Healthy Boost
+</div>
+
+<p class="food-desc">
+Fresh pomegranate juice rich in vitamins and antioxidants.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/apple_juice.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Apple Juice</span>
+<span class="food-price">₹119</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Fruit Classic
+</div>
+
+<p class="food-desc">
+Refreshing apple juice prepared from premium apples.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/kiwi_cooler.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Kiwi Cooler</span>
+<span class="food-price">₹169</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Exotic Drink
+</div>
+
+<p class="food-desc">
+A refreshing blend of kiwi and chilled sparkling flavors.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/fruit_punch.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Fruit Punch</span>
+<span class="food-price">₹179</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Signature Mocktail
+</div>
+
+<p class="food-desc">
+A colorful mix of tropical fruits and refreshing juices.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/mint_cooler.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Mint Cooler</span>
+<span class="food-price">₹149</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Cool Refreshment
+</div>
+
+<p class="food-desc">
+Fresh mint blended with chilled citrus flavors.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/rainbow_mocktail.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Rainbow Mocktail</span>
+<span class="food-price">₹199</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Instagram Favorite
+</div>
+
+<p class="food-desc">
+A vibrant layered mocktail bursting with fruity flavors.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/royal_mocktail.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Royal Delight Special Mocktail</span>
+<span class="food-price">₹249</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Royal Signature
+</div>
+
+<p class="food-desc">
+Our exclusive premium mocktail crafted with secret ingredients.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>  
+
+<div class="card">
+
+<img src="./images/coconut_water.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Coconut Water</span>
+<span class="food-price">₹89</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Natural Refreshment
+</div>
+
+<p class="food-desc">
+Fresh tender coconut water served naturally chilled.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/energy_smoothie.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Energy Booster Smoothie</span>
+<span class="food-price">₹199</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Fitness Special
+</div>
+
+<p class="food-desc">
+A nutritious smoothie packed with fruits, nuts and energy.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
 </div>
 
 </div>

@@ -2,7 +2,8 @@
 <html>
 <head>
 <title>Veg Menu</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <style>
 /* BODY BACKGROUND */
 body{
@@ -15,18 +16,32 @@ body{
 
 /* BACKGROUND IMAGE + BLUR */
 body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:url("./images/bg.jpg") center/cover no-repeat;
-  filter:blur(8px) brightness(50%);
-  z-index:-1;
+
+    content:"";
+
+    position:fixed;
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.55)
+    ),
+    url("./images/nonveg.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    filter:none;
+
+    z-index:-1;
 }
 
 /* HEADING */
 h1{
   margin-top:30px;
-  font-size:40px;
+  font-size:30px;
   color:#FFD700;
 }
 
@@ -41,21 +56,52 @@ h1{
 
 /* CARD */
 .card{
-  width:220px;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(10px);
-  border-radius:12px;
-  overflow:hidden;
-  transition:0.3s;
-  border:1px solid rgba(255,255,255,0.2);
+
+    width:320px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    transition:0.5s;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.4);
+
+    position:relative;
+}
+
+.card:hover{
+
+    transform:
+    translateY(-12px)
+    scale(1.04);
+
+    box-shadow:
+    0 0 25px gold,
+    0 0 45px rgba(255,215,0,.5);
 }
 
 /* IMAGE */
 .card img{
-  width:100%;
-  height:150px;
-  object-fit:cover;
-  display:block;
+
+    width:100%;
+    height:220px;
+
+    object-fit:cover;
+
+    transition:0.5s;
+}
+
+.card:hover img{
+
+    transform:scale(1.1);
 }
 
 /* NAME */
@@ -71,34 +117,833 @@ h1{
     0 0 15px #ff9800,
     0 0 30px #ff9800;
 }
+
+.food-info{
+
+    padding:20px;
+    text-align:left;
+}
+
+.food-name{
+
+    display:flex;
+    justify-content:space-between;
+
+    font-size:24px;
+    font-weight:bold;
+
+    color:#FFD700;
+}
+
+.food-price{
+
+    color:#ff9800;
+}
+
+.food-rating{
+
+    color:gold;
+
+    margin:10px 0;
+}
+
+.food-desc{
+
+    color:white;
+
+    line-height:1.6;
+
+    font-size:15px;
+}
+
+.order-btn{
+
+    margin-top:15px;
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient(
+    135deg,
+    #FFD700,
+    #ff9800
+    );
+
+    color:black;
+
+    transition:.4s;
+}
+
+.order-btn:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:
+    0 0 20px gold,
+    0 0 40px gold;
+}
+
+.menu-banner{
+
+padding:60px 20px;
+
+text-align:center;
+}
+
+.menu-banner h1{
+    font-family:'Cinzel', serif;
+
+    font-size:50px;
+
+    font-weight:700;
+
+    color:#FFD700;
+
+    letter-spacing:3px;
+
+    text-shadow:
+    0 0 10px gold,
+    0 0 20px gold,
+    0 0 40px rgba(255,215,0,.6);
+}
+
+.menu-banner p{
+
+    font-family:'Pacifico', cursive;
+
+    font-size:24px;
+
+    color:white;
+
+    line-height:1.3;
+
+    text-align:center;
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,.4);
+
+    letter-spacing:1px;
+}
+
 </style>
 
 </head>
 
 <body>
 
-<h1>Veg Items</h1>
+<div class="menu-banner">
+
+<h1>🍗 Royal Delight Non-Veg Collection</h1>
+
+<p>
+Experience our signature non-vegetarian delicacies,
+crafted with premium meats, authentic spices, and royal flavours.
+</p>
+
+</div>
 
 <div class="container">
 
 <div class="card">
-  <img src="./images/paneer.jpg"> 
-  <h3>Paneer Curry</h3>
+<img src="./images/chicken_biryani.jpg">
+
+<div class="food-info">
+<div class="food-name">
+<span>Chicken Biryani</span>
+<span class="food-price">₹299</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Best Seller
+</div>
+
+<p class="food-desc">
+Fragrant basmati rice layered with juicy chicken and aromatic spices.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+</div>
 </div>
 
 <div class="card">
-  <img src="./images/veg_biryani.jpg"> 
-  <h3>Veg Biryani</h3>
+<img src="./images/hyderabadi_dum_biryani.jpg">
+
+<div class="food-info">
+<div class="food-name">
+<span>Hyderabadi Dum Biryani</span>
+<span class="food-price">₹349</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Royal Special
+</div>
+
+<p class="food-desc">
+Traditional dum-cooked biryani packed with authentic Hyderabadi flavors.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+</div>
 </div>
 
 <div class="card">
-  <img src="./images/dosa.jpg"> 
-  <h3>Masala Dosa</h3>
+<img src="./images/mutton_biryani.jpg">
+
+<div class="food-info">
+<div class="food-name">
+<span>Mutton Biryani</span>
+<span class="food-price">₹399</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Premium Choice
+</div>
+
+<p class="food-desc">
+Tender mutton cooked with fragrant rice and royal spices.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+</div>
 </div>
 
 <div class="card">
-  <img src="./images/green_salad.jpg"> 
-  <h3>Green Salad</h3>
+<img src="./images/frypiece_biryani.jpg">
+
+<div class="food-info">
+<div class="food-name">
+<span>Chicken Fry Piece Biryani</span>
+<span class="food-price">₹329</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Signature Dish
+</div>
+
+<p class="food-desc">
+Crispy chicken fry pieces served with aromatic biryani rice.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/chicken65_biryani.jpg">
+
+<div class="food-info">
+<div class="food-name">
+<span>Chicken 65 Biryani</span>
+<span class="food-price">₹349</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Customer Favorite
+</div>
+
+<p class="food-desc">
+Spicy Chicken 65 layered with flavorful biryani rice.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/prawns_biryani.jpg">
+
+<div class="food-info">
+<div class="food-name">
+<span>Prawns Biryani</span>
+<span class="food-price">₹429</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Seafood Special
+</div>
+
+<p class="food-desc">
+Juicy prawns cooked with aromatic rice and coastal spices.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/fish_biryani.jpg">
+
+<div class="food-info">
+<div class="food-name">
+<span>Fish Biryani</span>
+<span class="food-price">₹389</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Coastal Delight
+</div>
+
+<p class="food-desc">
+Tender fish pieces cooked with aromatic biryani masala.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/chicken_fried_rice.jpg">
+
+<div class="food-info">
+<div class="food-name">
+<span>Chicken Fried Rice</span>
+<span class="food-price">₹249</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Indo-Chinese Favorite
+</div>
+
+<p class="food-desc">
+Wok-tossed rice with chicken cubes and oriental flavors.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/schezwan_chicken_rice.jpg">
+
+<div class="food-info">
+<div class="food-name">
+<span>Schezwan Chicken Fried Rice</span>
+<span class="food-price">₹279</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Spicy Choice
+</div>
+
+<p class="food-desc">
+Fiery Schezwan rice loaded with juicy chicken pieces.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/chicken_noodles.jpg">
+
+<div class="food-info">
+<div class="food-name">
+<span>Chicken Noodles</span>
+<span class="food-price">₹249</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Popular Choice
+</div>
+
+<p class="food-desc">
+Stir-fried noodles with tender chicken and vegetables.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/chicken65.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Chicken 65</span>
+<span class="food-price">₹269</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Spicy Favorite
+</div>
+
+<p class="food-desc">
+Crispy chicken bites tossed in authentic South Indian 65 masala.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/apollo_fish.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Apollo Fish</span>
+<span class="food-price">₹349</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Coastal Special
+</div>
+
+<p class="food-desc">
+Boneless fish cubes fried and tossed in spicy Apollo seasoning.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/chilli_chicken.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Chilli Chicken</span>
+<span class="food-price">₹289</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Indo-Chinese Favorite
+</div>
+
+<p class="food-desc">
+Juicy chicken stir-fried with onions, capsicum and spicy sauces.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/dragon_chicken.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Dragon Chicken</span>
+<span class="food-price">₹329</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Chef Special
+</div>
+
+<p class="food-desc">
+Crunchy chicken strips coated in fiery dragon sauce and sesame flavors.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/pepper_chicken.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Pepper Chicken</span>
+<span class="food-price">₹319</span>
+</div>
+
+<div class="food-rating">
+★★★★★ House Favorite
+</div>
+
+<p class="food-desc">
+Tender chicken cooked with crushed black pepper and aromatic spices.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/chicken_lollipop.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Chicken Lollipop</span>
+<span class="food-price">₹299</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Party Starter
+</div>
+
+<p class="food-desc">
+Crispy chicken wings shaped into lollipops with flavorful seasoning.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/chicken_majestic.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Chicken Majestic</span>
+<span class="food-price">₹329</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Signature Dish
+</div>
+
+<p class="food-desc">
+Hyderabad's famous creamy chicken tossed with herbs and spices.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/chicken_wings.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Chicken Wings</span>
+<span class="food-price">₹279</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Crowd Favorite
+</div>
+
+<p class="food-desc">
+Crispy chicken wings glazed with spicy and smoky flavors.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/tandoori_chicken.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Tandoori Chicken</span>
+<span class="food-price">₹349</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Royal Grill
+</div>
+
+<p class="food-desc">
+Chicken marinated in yogurt and spices then grilled in a tandoor.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/chicken_tikka.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Chicken Tikka</span>
+<span class="food-price">₹329</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Premium Starter
+</div>
+
+<p class="food-desc">
+Boneless chicken cubes grilled to perfection with aromatic spices.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/mutton_keema.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Mutton Keema</span>
+<span class="food-price">₹389</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Royal Delight
+</div>
+
+<p class="food-desc">
+Minced mutton cooked with onions, herbs and authentic spices.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/mutton_fry.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Mutton Fry</span>
+<span class="food-price">₹419</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Chef's Choice
+</div>
+
+<p class="food-desc">
+Tender mutton pieces stir-fried with aromatic spices and curry leaves.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/mutton_pepper_fry.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Mutton Pepper Fry</span>
+<span class="food-price">₹429</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Spicy Special
+</div>
+
+<p class="food-desc">
+Succulent mutton cooked with crushed pepper and rich spices.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/mutton_rogan_josh.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Mutton Rogan Josh</span>
+<span class="food-price">₹449</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Kashmiri Classic
+</div>
+
+<p class="food-desc">
+Rich Kashmiri mutton curry slow-cooked with aromatic spices.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/butter_chicken.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Butter Chicken</span>
+<span class="food-price">₹359</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Most Loved
+</div>
+
+<p class="food-desc">
+Tender chicken simmered in creamy buttery tomato gravy.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/chicken_curry.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Chicken Curry</span>
+<span class="food-price">₹299</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Traditional Favorite
+</div>
+
+<p class="food-desc">
+Classic chicken curry prepared with traditional Indian spices.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/kadai_chicken.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Kadai Chicken</span>
+<span class="food-price">₹329</span>
+</div>
+
+<div class="food-rating">
+★★★★★ House Special
+</div>
+
+<p class="food-desc">
+Chicken cooked with capsicum, onions and aromatic kadai masala.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/fish_fry.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Fish Fry</span>
+<span class="food-price">₹349</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Coastal Favorite
+</div>
+
+<p class="food-desc">
+Fresh fish marinated with spices and fried to crispy perfection.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/prawns_fry.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Prawns Fry</span>
+<span class="food-price">₹449</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Seafood Special
+</div>
+
+<p class="food-desc">
+Juicy prawns tossed with spicy masala and crispy curry leaves.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/crab_masala.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Crab Masala</span>
+<span class="food-price">₹499</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Royal Seafood
+</div>
+
+<p class="food-desc">
+Fresh crab cooked in rich coastal masala with aromatic spices.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
 </div>
 
 </div>

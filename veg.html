@@ -2,7 +2,8 @@
 <html>
 <head>
 <title>Veg Menu</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <style>
 /* BODY BACKGROUND */
 body{
@@ -15,12 +16,26 @@ body{
 
 /* BACKGROUND IMAGE + BLUR */
 body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:url("./images/bg.jpg") center/cover no-repeat;
-  filter:blur(8px) brightness(50%);
-  z-index:-1;
+
+    content:"";
+
+    position:fixed;
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(2, 50, 4, 0.942),
+        rgba(0,0,0,.55)
+    ),
+    url("./images/veg.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    filter:none;
+
+    z-index:-1;
 }
 
 /* HEADING */
@@ -41,21 +56,52 @@ h1{
 
 /* CARD */
 .card{
-  width:220px;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(10px);
-  border-radius:12px;
-  overflow:hidden;
-  transition:0.3s;
-  border:1px solid rgba(255,255,255,0.2);
+
+    width:320px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    transition:0.5s;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.4);
+
+    position:relative;
+}
+
+.card:hover{
+
+    transform:
+    translateY(-12px)
+    scale(1.04);
+
+    box-shadow:
+    0 0 25px gold,
+    0 0 45px rgba(255,215,0,.5);
 }
 
 /* IMAGE */
 .card img{
-  width:100%;
-  height:150px;
-  object-fit:cover;
-  display:block;
+
+    width:100%;
+    height:220px;
+
+    object-fit:cover;
+
+    transition:0.5s;
+}
+
+.card:hover img{
+
+    transform:scale(1.1);
 }
 
 /* NAME */
@@ -71,34 +117,876 @@ h1{
     0 0 15px #ff9800,
     0 0 30px #ff9800;
 }
+
+.food-info{
+
+    padding:20px;
+    text-align:left;
+}
+
+.food-name{
+
+    display:flex;
+    justify-content:space-between;
+
+    font-size:24px;
+    font-weight:bold;
+
+    color:#FFD700;
+}
+
+.food-price{
+
+    color:#ff9800;
+}
+
+.food-rating{
+
+    color:gold;
+
+    margin:10px 0;
+}
+
+.food-desc{
+
+    color:white;
+
+    line-height:1.6;
+
+    font-size:15px;
+}
+
+.order-btn{
+
+    margin-top:15px;
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient(
+    135deg,
+    #FFD700,
+    #ff9800
+    );
+
+    color:black;
+
+    transition:.4s;
+}
+
+.order-btn:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:
+    0 0 20px gold,
+    0 0 40px gold;
+}
+
+
+.menu-banner{
+
+padding:60px 20px;
+
+text-align:center;
+}
+
+.menu-banner h1{
+    font-family:'Cinzel', serif;
+
+    font-size:50px;
+
+    font-weight:700;
+
+    color:#FFD700;
+
+    letter-spacing:3px;
+
+    text-shadow:
+    0 0 10px gold,
+    0 0 20px gold,
+    0 0 40px rgba(255,215,0,.6);
+}
+
+.menu-banner p{
+
+    font-family:'Pacifico', cursive;
+
+    font-size:24px;
+
+    color:white;
+
+    line-height:1.3;
+
+    text-align:center;
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,.4);
+
+    letter-spacing:1px;
+}
+
 </style>
 
 </head>
 
 <body>
 
-<h1>Veg Items</h1>
+<div class="menu-banner">
+
+<h1>🥗 Royal Delight Veg Collection</h1>
+
+<p>
+Handcrafted vegetarian delicacies prepared
+with authentic ingredients and royal flavours.
+</p>
+
+</div>
 
 <div class="container">
 
 <div class="card">
-  <img src="./images/paneer.jpg"> 
-  <h3>Paneer Curry</h3>
+<img src="./images/paneer_butter_masala.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Paneer Butter Masala</span>
+<span class="food-price">₹249</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Chef Special
+</div>
+
+<p class="food-desc">
+Soft paneer cubes cooked in rich buttery tomato gravy with royal spices.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+
+</div>
 </div>
 
 <div class="card">
-  <img src="./images/veg_biryani.jpg"> 
-  <h3>Veg Biryani</h3>
+<img src="./images/kadai_paneer.jpg">
+
+<div class="food-info">
+<div class="food-name">
+<span>Kadai Paneer</span>
+<span class="food-price">₹239</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Signature Dish
+</div>
+
+<p class="food-desc">
+Paneer tossed with bell peppers and aromatic kadai masala.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+</div>
 </div>
 
 <div class="card">
-  <img src="./images/dosa.jpg"> 
-  <h3>Masala Dosa</h3>
+<img src="./images/palak_paneer.jpg">
+
+<div class="food-info">
+<div class="food-name">
+<span>Palak Paneer</span>
+<span class="food-price">₹229</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Healthy Choice
+</div>
+
+<p class="food-desc">
+Fresh paneer cubes simmered in creamy spinach gravy.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+</div>
 </div>
 
 <div class="card">
-  <img src="./images/green_salad.jpg"> 
-  <h3>Green Salad</h3>
+<img src="./images/shahi_paneer.jpg">
+
+<div class="food-info">
+<div class="food-name">
+<span>Shahi Paneer</span>
+<span class="food-price">₹259</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Royal Delight
+</div>
+
+<p class="food-desc">
+Luxurious paneer curry enriched with cream, cashews and saffron.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/veg_kolhapuri.jpg">
+
+<div class="food-info">
+<div class="food-name">
+<span>Veg Kolhapuri</span>
+<span class="food-price">₹219</span>
+</div>
+
+<div class="food-rating">
+★★★★☆ Spicy Favorite
+</div>
+
+<p class="food-desc">
+Mixed vegetables cooked in authentic spicy Kolhapuri masala.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/malai_kofta.jpg">
+
+<div class="food-info">
+<div class="food-name">
+<span>Malai Kofta</span>
+<span class="food-price">₹249</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Guest Favorite
+</div>
+
+<p class="food-desc">
+Soft vegetable dumplings served in creamy rich gravy.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/mushroom_masala.jpg">
+
+<div class="food-info">
+<div class="food-name">
+<span>Mushroom Masala</span>
+<span class="food-price">₹229</span>
+</div>
+
+<div class="food-rating">
+★★★★☆ Popular Choice
+</div>
+
+<p class="food-desc">
+Fresh mushrooms cooked with onions and traditional spices.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/veg_handi.jpg">
+
+<div class="food-info">
+<div class="food-name">
+<span>Veg Handi</span>
+<span class="food-price">₹239</span>
+</div>
+
+<div class="food-rating">
+★★★★★ House Special
+</div>
+
+<p class="food-desc">
+Mixed vegetables slow-cooked in traditional handi style.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/veg_biryani.jpg">
+
+<div class="food-info">
+<div class="food-name">
+<span>Veg Biryani</span>
+<span class="food-price">₹219</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Best Seller
+</div>
+
+<p class="food-desc">
+Fragrant basmati rice layered with vegetables and spices.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/paneer_biryani.jpg">
+
+<div class="food-info">
+<div class="food-name">
+<span>Paneer Biryani</span>
+<span class="food-price">₹249</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Premium Choice
+</div>
+
+<p class="food-desc">
+Aromatic biryani loaded with marinated paneer cubes.
+</p>
+
+<button class="order-btn">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/mushroom_biryani.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Mushroom Biryani</span>
+<span class="food-price">₹239</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Chef's Favorite
+</div>
+
+<p class="food-desc">
+Fragrant basmati rice layered with juicy mushrooms and authentic biryani spices.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/hyderabadi_veg_biryani.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Hyderabadi Veg Dum Biryani</span>
+<span class="food-price">₹269</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Royal Special
+</div>
+
+<p class="food-desc">
+Traditional dum-cooked biryani packed with vegetables and royal Hyderabadi flavors.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/kashmiri_pulao.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Kashmiri Pulao</span>
+<span class="food-price">₹229</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Premium Delight
+</div>
+
+<p class="food-desc">
+Saffron-infused rice cooked with dry fruits, nuts and aromatic spices.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/jeera_rice.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Jeera Rice</span>
+<span class="food-price">₹149</span>
+</div>
+
+<div class="food-rating">
+★★★★☆ Classic Choice
+</div>
+
+<p class="food-desc">
+Perfectly steamed basmati rice tempered with roasted cumin and herbs.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/veg_fried_rice.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Veg Fried Rice</span>
+<span class="food-price">₹199</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Customer Favorite
+</div>
+
+<p class="food-desc">
+Wok-tossed rice loaded with fresh vegetables and oriental seasonings.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/paneer_fried_rice.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Paneer Fried Rice</span>
+<span class="food-price">₹229</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Signature Dish
+</div>
+
+<p class="food-desc">
+Flavorful fried rice mixed with tender paneer cubes and premium spices.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/mushroom_fried_rice.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Mushroom Fried Rice</span>
+<span class="food-price">₹219</span>
+</div>
+
+<div class="food-rating">
+★★★★★ House Special
+</div>
+
+<p class="food-desc">
+Fresh mushrooms stir-fried with rice and savory oriental flavors.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/gobi65.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Gobi 65</span>
+<span class="food-price">₹199</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Spicy Favorite
+</div>
+
+<p class="food-desc">
+Crispy cauliflower florets tossed in spicy South Indian 65 masala.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/paneer65.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Paneer 65</span>
+<span class="food-price">₹229</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Best Seller
+</div>
+
+<p class="food-desc">
+Golden-fried paneer cubes coated with flavorful 65 spices and herbs.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/babycorn_fry.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Crispy Baby Corn Fry</span>
+<span class="food-price">₹209</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Crunchy Delight
+</div>
+
+<p class="food-desc">
+Crispy baby corn tossed with spices and herbs for the perfect crunch.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/veg_manchurian.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Veg Manchurian</span>
+<span class="food-price">₹219</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Indo-Chinese Special
+</div>
+
+<p class="food-desc">
+Crispy vegetable balls tossed in flavorful Manchurian sauce with fresh vegetables.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/chilli_paneer.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Chilli Paneer</span>
+<span class="food-price">₹249</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Best Seller
+</div>
+
+<p class="food-desc">
+Soft paneer cubes stir-fried with onions, capsicum and spicy chilli sauce.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/mushroom65.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Mushroom 65</span>
+<span class="food-price">₹229</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Spicy Delight
+</div>
+
+<p class="food-desc">
+Crispy mushrooms coated with traditional 65 masala and aromatic herbs.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/dragon_paneer.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Dragon Paneer</span>
+<span class="food-price">₹269</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Chef Special
+</div>
+
+<p class="food-desc">
+Crunchy paneer strips tossed in fiery dragon sauce with sesame flavors.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/veg_noodles.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Veg Noodles</span>
+<span class="food-price">₹199</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Popular Choice
+</div>
+
+<p class="food-desc">
+Stir-fried noodles loaded with fresh vegetables and authentic oriental seasoning.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/schezwan_fried_rice.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Schezwan Fried Rice</span>
+<span class="food-price">₹239</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Spicy Favorite
+</div>
+
+<p class="food-desc">
+Flavor-packed fried rice tossed with fiery Schezwan sauce and vegetables.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/paneer_tikka.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Paneer Tikka</span>
+<span class="food-price">₹279</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Royal Starter
+</div>
+
+<p class="food-desc">
+Paneer cubes marinated in spices and grilled to perfection in a tandoor.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/hara_bhara_kebab.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Hara Bhara Kebab</span>
+<span class="food-price">₹229</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Healthy Delight
+</div>
+
+<p class="food-desc">
+Spinach and green peas kebabs seasoned with herbs and spices.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/veg_sheekh_kebab.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Veg Sheekh Kebab</span>
+<span class="food-price">₹249</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Signature Starter
+</div>
+
+<p class="food-desc">
+Mixed vegetable kebabs grilled with traditional Indian spices and herbs.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="./images/tandoori_broccoli.jpg">
+
+<div class="food-info">
+
+<div class="food-name">
+<span>Tandoori Broccoli</span>
+<span class="food-price">₹259</span>
+</div>
+
+<div class="food-rating">
+★★★★★ Premium Choice
+</div>
+
+<p class="food-desc">
+Fresh broccoli florets marinated in tandoori spices and char-grilled.
+</p>
+
+<button class="order-btn">
+Add To Cart
+</button>
+
+</div>
 </div>
 
 </div>
